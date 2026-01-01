@@ -4,6 +4,9 @@
 # Store listing assets (not needed for source)
 store-listing/
 
+# Agent instructions (local only)
+AGENT_INSTRUCTIONS.md
+
 # OS files
 .DS_Store
 Thumbs.db
