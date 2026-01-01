@@ -1,0 +1,42 @@
+{
+  "extName": {
+    "message": "Farbwähler",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Einfacher Farbwähler - Klicken Sie, um eine beliebige Farbe von der Seite auszuwählen und zu kopieren",
+    "description": "Extension description"
+  },
+  "pickColor": {
+    "message": "Farbe Auswählen",
+    "description": "Button to activate color picker"
+  },
+  "noColorSelected": {
+    "message": "Keine Farbe ausgewählt",
+    "description": "Placeholder when no color is picked"
+  },
+  "colorFormat": {
+    "message": "Farbformat:",
+    "description": "Label for format selection"
+  },
+  "recentColors": {
+    "message": "Letzte Farben:",
+    "description": "Label for color history"
+  },
+  "copied": {
+    "message": "Kopiert!",
+    "description": "Status message when color is copied"
+  },
+  "cannotPickOnPage": {
+    "message": "Farben können auf dieser Seite nicht ausgewählt werden",
+    "description": "Error when on restricted pages"
+  },
+  "failedToActivate": {
+    "message": "Farbwähler konnte nicht aktiviert werden",
+    "description": "Error when picker fails to start"
+  },
+  "colorCopied": {
+    "message": "Farbe kopiert!",
+    "description": "Success message"
+  }
+}

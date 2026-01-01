@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 <span data-i18n="extName">Color Picker</span></h1>
+    
+    <button id="pickColor" class="pick-btn">
+      <span class="icon">🔍</span>
+      <span data-i18n="pickColor">Pick Color</span>
+    </button>
+    
+    <div class="color-preview" id="colorPreview">
+      <div class="preview-box" id="previewBox"></div>
+      <div class="color-value" id="colorValue" data-i18n="noColorSelected">No color selected</div>
+    </div>
+    
+    <div class="format-section">
+      <label data-i18n="colorFormat">Color Format:</label>
+      <div class="format-options">
+        <button class="format-btn active" data-format="hex">HEX</button>
+        <button class="format-btn" data-format="rgb">RGB</button>
+        <button class="format-btn" data-format="rgba">RGBA</button>
+        <button class="format-btn" data-format="hsl">HSL</button>
+      </div>
+    </div>
+    
+    <div class="history-section">
+      <label data-i18n="recentColors">Recent Colors:</label>
+      <div class="color-history" id="colorHistory"></div>
+    </div>
+    
+    <div class="status" id="status"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

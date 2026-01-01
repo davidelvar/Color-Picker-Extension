@@ -1,0 +1,42 @@
+{
+  "extName": {
+    "message": "カラーピッカー",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "シンプルなカラーピッカー - クリックしてページから任意の色を選択してコピー",
+    "description": "Extension description"
+  },
+  "pickColor": {
+    "message": "色を選択",
+    "description": "Button to activate color picker"
+  },
+  "noColorSelected": {
+    "message": "色が選択されていません",
+    "description": "Placeholder when no color is picked"
+  },
+  "colorFormat": {
+    "message": "カラー形式：",
+    "description": "Label for format selection"
+  },
+  "recentColors": {
+    "message": "最近の色：",
+    "description": "Label for color history"
+  },
+  "copied": {
+    "message": "コピーしました！",
+    "description": "Status message when color is copied"
+  },
+  "cannotPickOnPage": {
+    "message": "このページでは色を選択できません",
+    "description": "Error when on restricted pages"
+  },
+  "failedToActivate": {
+    "message": "ピッカーの起動に失敗しました",
+    "description": "Error when picker fails to start"
+  },
+  "colorCopied": {
+    "message": "色をコピーしました！",
+    "description": "Success message"
+  }
+}

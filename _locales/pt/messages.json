@@ -1,0 +1,42 @@
+{
+  "extName": {
+    "message": "Seletor de Cores",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Seletor de cores simples - clique para escolher qualquer cor da página e copiá-la",
+    "description": "Extension description"
+  },
+  "pickColor": {
+    "message": "Selecionar Cor",
+    "description": "Button to activate color picker"
+  },
+  "noColorSelected": {
+    "message": "Nenhuma cor selecionada",
+    "description": "Placeholder when no color is picked"
+  },
+  "colorFormat": {
+    "message": "Formato de Cor:",
+    "description": "Label for format selection"
+  },
+  "recentColors": {
+    "message": "Cores Recentes:",
+    "description": "Label for color history"
+  },
+  "copied": {
+    "message": "Copiado!",
+    "description": "Status message when color is copied"
+  },
+  "cannotPickOnPage": {
+    "message": "Não é possível selecionar cores nesta página",
+    "description": "Error when on restricted pages"
+  },
+  "failedToActivate": {
+    "message": "Falha ao ativar o seletor",
+    "description": "Error when picker fails to start"
+  },
+  "colorCopied": {
+    "message": "Cor copiada!",
+    "description": "Success message"
+  }
+}

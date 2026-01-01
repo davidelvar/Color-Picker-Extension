@@ -1,0 +1,42 @@
+{
+  "extName": {
+    "message": "取色器",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "简单的取色器 - 点击即可从页面选取任何颜色并复制",
+    "description": "Extension description"
+  },
+  "pickColor": {
+    "message": "选取颜色",
+    "description": "Button to activate color picker"
+  },
+  "noColorSelected": {
+    "message": "未选择颜色",
+    "description": "Placeholder when no color is picked"
+  },
+  "colorFormat": {
+    "message": "颜色格式：",
+    "description": "Label for format selection"
+  },
+  "recentColors": {
+    "message": "最近颜色：",
+    "description": "Label for color history"
+  },
+  "copied": {
+    "message": "已复制！",
+    "description": "Status message when color is copied"
+  },
+  "cannotPickOnPage": {
+    "message": "无法在此页面选取颜色",
+    "description": "Error when on restricted pages"
+  },
+  "failedToActivate": {
+    "message": "启动取色器失败",
+    "description": "Error when picker fails to start"
+  },
+  "colorCopied": {
+    "message": "颜色已复制！",
+    "description": "Success message"
+  }
+}

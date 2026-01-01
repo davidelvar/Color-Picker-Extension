@@ -1,0 +1,42 @@
+{
+  "extName": {
+    "message": "색상 선택기",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "간단한 색상 선택기 - 클릭하여 페이지에서 원하는 색상을 선택하고 복사하세요",
+    "description": "Extension description"
+  },
+  "pickColor": {
+    "message": "색상 선택",
+    "description": "Button to activate color picker"
+  },
+  "noColorSelected": {
+    "message": "선택된 색상 없음",
+    "description": "Placeholder when no color is picked"
+  },
+  "colorFormat": {
+    "message": "색상 형식:",
+    "description": "Label for format selection"
+  },
+  "recentColors": {
+    "message": "최근 색상:",
+    "description": "Label for color history"
+  },
+  "copied": {
+    "message": "복사됨!",
+    "description": "Status message when color is copied"
+  },
+  "cannotPickOnPage": {
+    "message": "이 페이지에서는 색상을 선택할 수 없습니다",
+    "description": "Error when on restricted pages"
+  },
+  "failedToActivate": {
+    "message": "선택기 활성화 실패",
+    "description": "Error when picker fails to start"
+  },
+  "colorCopied": {
+    "message": "색상이 복사되었습니다!",
+    "description": "Success message"
+  }
+}
