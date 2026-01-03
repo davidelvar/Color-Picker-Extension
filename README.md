@@ -19,7 +19,7 @@ A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick a
 ## 📥 Installation
 
 ### From Store (Recommended)
-- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/) *(Coming soon)*
+- [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/jjpkoepmiolkamondihcckpfenemkhmi)
 
 ### Manual Installation (Developer Mode)
 
