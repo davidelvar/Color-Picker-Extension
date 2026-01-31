@@ -3,7 +3,7 @@
 A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick any color from any webpage with a magnifying glass preview and copy it instantly.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.2.0-green.svg)
+![Version](https://img.shields.io/badge/version-1.3.1-green.svg)
 ![Edge](https://img.shields.io/badge/Edge-Compatible-blue?logo=microsoft-edge)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-blue?logo=google-chrome)
 
@@ -13,6 +13,11 @@ A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick a
 - **📋 One-Click Copy** - Click any pixel to instantly copy the color value
 - **🎯 Multiple Formats** - Switch between HEX, RGB, RGBA, and HSL
 - **📜 Color History** - Quick access to your 8 most recent colors
+- **🎨 Colors on This Page** - Scan and extract all colors used on any webpage with one-click copy all
+- **⌨️ Keyboard Shortcut** - Quick-activate with Alt+Shift+C
+- **♿ Contrast Checker** - WCAG accessibility rating for every color
+- **🏷️ Color Names** - Shows closest CSS named color
+- **🌗 Light & Dark Themes** - Toggle between light and dark mode
 - **⚡ Lightweight** - Zero bloat, minimal permissions, no tracking
 - **🌍 Multi-language** - Supports 8 languages (EN, ES, FR, DE, PT, ZH, JA, KO)
 
@@ -109,7 +114,20 @@ Contributions are welcome! Feel free to:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## � Changelog
+## 📋 Changelog
+
+### v1.3.1 - January 31, 2026
+**🎨 Colors on This Page & Accessibility Tools**
+
+- **Page Color Extraction**: Scan any webpage to extract all colors used
+- **Copy All Colors**: One-click to copy entire color palette to clipboard
+- **Smart Detection**: Finds colors in text, backgrounds, borders, gradients, and SVGs
+- **Hue Sorting**: Colors organized by hue for easy browsing
+- **Keyboard Shortcut**: Press `Alt+Shift+C` to instantly activate the picker
+- **Contrast Checker**: Shows WCAG accessibility rating (AAA/AA/Fail) for every color
+- **Color Names**: Displays the closest CSS named color (e.g., "Tomato", "RoyalBlue")
+- **Live Preview**: See how your color looks with white and black text
+- **Localized**: All new features fully translated in all 8 languages
 
 ### v1.2.0 - January 31, 2026
 **🎨 Light Theme & UI Redesign**
@@ -131,7 +149,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Color history (8 recent colors)
 - Multi-language support (8 languages)
 
-## �🙏 Acknowledgments
+## 🙏 Acknowledgments
 
 - Built with Manifest V3 for modern browser compatibility
 - Icons designed for clarity at all sizes

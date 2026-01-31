@@ -38,5 +38,41 @@
   "colorCopied": {
     "message": "Farbe kopiert!",
     "description": "Success message"
+  },
+  "colorsOnPage": {
+    "message": "Farben auf Dieser Seite",
+    "description": "Label for page colors section"
+  },
+  "clickToScan": {
+    "message": "Klicken zum Scannen",
+    "description": "Placeholder before scanning"
+  },
+  "noRecentColors": {
+    "message": "Keine aktuellen Farben",
+    "description": "Placeholder when no color history"
+  },
+  "colorsCopied": {
+    "message": "Farben kopiert",
+    "description": "Status when multiple colors copied"
+  },
+  "colorName": {
+    "message": "Name",
+    "description": "Label for color name"
+  },
+  "contrast": {
+    "message": "Kontrast",
+    "description": "Label for contrast section"
+  },
+  "withWhite": {
+    "message": "mit Weiß",
+    "description": "Contrast with white text"
+  },
+  "withBlack": {
+    "message": "mit Schwarz",
+    "description": "Contrast with black text"
+  },
+  "keyboardShortcut": {
+    "message": "Tastenkürzel",
+    "description": "Tooltip for keyboard shortcut"
   }
 }

@@ -38,5 +38,41 @@
   "colorCopied": {
     "message": "色をコピーしました！",
     "description": "Success message"
+  },
+  "colorsOnPage": {
+    "message": "このページの色",
+    "description": "Label for page colors section"
+  },
+  "clickToScan": {
+    "message": "クリックしてスキャン",
+    "description": "Placeholder before scanning"
+  },
+  "noRecentColors": {
+    "message": "最近の色はありません",
+    "description": "Placeholder when no color history"
+  },
+  "colorsCopied": {
+    "message": "色をコピーしました",
+    "description": "Status when multiple colors copied"
+  },
+  "colorName": {
+    "message": "名前",
+    "description": "Label for color name"
+  },
+  "contrast": {
+    "message": "コントラスト",
+    "description": "Label for contrast section"
+  },
+  "withWhite": {
+    "message": "白との",
+    "description": "Contrast with white text"
+  },
+  "withBlack": {
+    "message": "黒との",
+    "description": "Contrast with black text"
+  },
+  "keyboardShortcut": {
+    "message": "キーボードショートカット",
+    "description": "Tooltip for keyboard shortcut"
   }
 }

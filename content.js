@@ -245,10 +245,93 @@
     if (e.key === 'Escape') deactivate();
   }
 
+  // Extract colors from the page
+  function extractPageColors() {
+    const colors = new Set();
+    const colorProps = ['color', 'background-color', 'border-color', 'border-top-color', 'border-right-color', 'border-bottom-color', 'border-left-color', 'outline-color', 'fill', 'stroke'];
+    
+    // Get all elements
+    const elements = document.querySelectorAll('*');
+    
+    elements.forEach(el => {
+      try {
+        const styles = window.getComputedStyle(el);
+        colorProps.forEach(prop => {
+          const value = styles.getPropertyValue(prop);
+          if (value && value !== 'transparent' && value !== 'rgba(0, 0, 0, 0)' && value !== 'none') {
+            const hex = rgbStringToHex(value);
+            if (hex) {
+              colors.add(hex);
+            }
+          }
+        });
+        
+        // Check for background images with gradients
+        const bgImage = styles.getPropertyValue('background-image');
+        if (bgImage && bgImage.includes('gradient')) {
+          const gradientColors = extractGradientColors(bgImage);
+          gradientColors.forEach(c => colors.add(c));
+        }
+      } catch (e) {
+        // Skip elements that can't be processed
+      }
+    });
+    
+    // Sort colors by hue for better visual organization
+    return sortColorsByHue([...colors]);
+  }
+  
+  function rgbStringToHex(rgbString) {
+    // Handle rgb(r, g, b) and rgba(r, g, b, a) formats
+    const match = rgbString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+      const r = parseInt(match[1]);
+      const g = parseInt(match[2]);
+      const b = parseInt(match[3]);
+      return ColorUtils.rgbToHex(r, g, b);
+    }
+    // Handle hex colors
+    if (rgbString.startsWith('#')) {
+      return rgbString.toUpperCase();
+    }
+    return null;
+  }
+  
+  function extractGradientColors(gradientString) {
+    const colors = [];
+    const rgbMatches = gradientString.matchAll(/rgba?\((\d+),\s*(\d+),\s*(\d+)/g);
+    for (const match of rgbMatches) {
+      const hex = ColorUtils.rgbToHex(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]));
+      colors.push(hex);
+    }
+    return colors;
+  }
+  
+  function sortColorsByHue(colors) {
+    return colors.sort((a, b) => {
+      const hslA = hexToHsl(a);
+      const hslB = hexToHsl(b);
+      // Sort by hue, then saturation, then lightness
+      if (hslA.h !== hslB.h) return hslA.h - hslB.h;
+      if (hslA.s !== hslB.s) return hslB.s - hslA.s;
+      return hslB.l - hslA.l;
+    });
+  }
+  
+  function hexToHsl(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return ColorUtils.rgbToHsl(r, g, b);
+  }
+
   chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     if (msg.action === 'activatePicker') { 
       activate(msg.format);
       sendResponse({ success: true }); 
+    } else if (msg.action === 'extractColors') {
+      const colors = extractPageColors();
+      sendResponse({ colors });
     }
     return true;
   });

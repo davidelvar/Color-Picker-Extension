@@ -53,6 +53,119 @@ const ColorUtils = {
       default:
         return hex;
     }
+  },
+
+  // Get relative luminance for WCAG contrast
+  getLuminance(r, g, b) {
+    const [rs, gs, bs] = [r, g, b].map(c => {
+      c = c / 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
+  },
+
+  // Calculate contrast ratio between two colors
+  getContrastRatio(hex1, hex2) {
+    const rgb1 = this.hexToRgb(hex1);
+    const rgb2 = this.hexToRgb(hex2);
+    if (!rgb1 || !rgb2) return 1;
+    
+    const l1 = this.getLuminance(rgb1.r, rgb1.g, rgb1.b);
+    const l2 = this.getLuminance(rgb2.r, rgb2.g, rgb2.b);
+    const lighter = Math.max(l1, l2);
+    const darker = Math.min(l1, l2);
+    return (lighter + 0.05) / (darker + 0.05);
+  },
+
+  // Get WCAG rating
+  getWCAGRating(contrast) {
+    if (contrast >= 7) return { level: 'AAA', pass: true };
+    if (contrast >= 4.5) return { level: 'AA', pass: true };
+    if (contrast >= 3) return { level: 'AA Large', pass: true };
+    return { level: 'Fail', pass: false };
+  },
+
+  // CSS Named Colors database (most common)
+  namedColors: {
+    '#F0F8FF': 'AliceBlue', '#FAEBD7': 'AntiqueWhite', '#00FFFF': 'Aqua/Cyan',
+    '#7FFFD4': 'Aquamarine', '#F0FFFF': 'Azure', '#F5F5DC': 'Beige',
+    '#FFE4C4': 'Bisque', '#000000': 'Black', '#FFEBCD': 'BlanchedAlmond',
+    '#0000FF': 'Blue', '#8A2BE2': 'BlueViolet', '#A52A2A': 'Brown',
+    '#DEB887': 'BurlyWood', '#5F9EA0': 'CadetBlue', '#7FFF00': 'Chartreuse',
+    '#D2691E': 'Chocolate', '#FF7F50': 'Coral', '#6495ED': 'CornflowerBlue',
+    '#FFF8DC': 'Cornsilk', '#DC143C': 'Crimson', '#00008B': 'DarkBlue',
+    '#008B8B': 'DarkCyan', '#B8860B': 'DarkGoldenRod', '#A9A9A9': 'DarkGray',
+    '#006400': 'DarkGreen', '#BDB76B': 'DarkKhaki', '#8B008B': 'DarkMagenta',
+    '#556B2F': 'DarkOliveGreen', '#FF8C00': 'DarkOrange', '#9932CC': 'DarkOrchid',
+    '#8B0000': 'DarkRed', '#E9967A': 'DarkSalmon', '#8FBC8F': 'DarkSeaGreen',
+    '#483D8B': 'DarkSlateBlue', '#2F4F4F': 'DarkSlateGray', '#00CED1': 'DarkTurquoise',
+    '#9400D3': 'DarkViolet', '#FF1493': 'DeepPink', '#00BFFF': 'DeepSkyBlue',
+    '#696969': 'DimGray', '#1E90FF': 'DodgerBlue', '#B22222': 'FireBrick',
+    '#FFFAF0': 'FloralWhite', '#228B22': 'ForestGreen', '#FF00FF': 'Fuchsia/Magenta',
+    '#DCDCDC': 'Gainsboro', '#F8F8FF': 'GhostWhite', '#FFD700': 'Gold',
+    '#DAA520': 'GoldenRod', '#808080': 'Gray', '#008000': 'Green',
+    '#ADFF2F': 'GreenYellow', '#F0FFF0': 'HoneyDew', '#FF69B4': 'HotPink',
+    '#CD5C5C': 'IndianRed', '#4B0082': 'Indigo', '#FFFFF0': 'Ivory',
+    '#F0E68C': 'Khaki', '#E6E6FA': 'Lavender', '#FFF0F5': 'LavenderBlush',
+    '#7CFC00': 'LawnGreen', '#FFFACD': 'LemonChiffon', '#ADD8E6': 'LightBlue',
+    '#F08080': 'LightCoral', '#E0FFFF': 'LightCyan', '#FAFAD2': 'LightGoldenRodYellow',
+    '#D3D3D3': 'LightGray', '#90EE90': 'LightGreen', '#FFB6C1': 'LightPink',
+    '#FFA07A': 'LightSalmon', '#20B2AA': 'LightSeaGreen', '#87CEFA': 'LightSkyBlue',
+    '#778899': 'LightSlateGray', '#B0C4DE': 'LightSteelBlue', '#FFFFE0': 'LightYellow',
+    '#00FF00': 'Lime', '#32CD32': 'LimeGreen', '#FAF0E6': 'Linen',
+    '#800000': 'Maroon', '#66CDAA': 'MediumAquaMarine', '#0000CD': 'MediumBlue',
+    '#BA55D3': 'MediumOrchid', '#9370DB': 'MediumPurple', '#3CB371': 'MediumSeaGreen',
+    '#7B68EE': 'MediumSlateBlue', '#00FA9A': 'MediumSpringGreen', '#48D1CC': 'MediumTurquoise',
+    '#C71585': 'MediumVioletRed', '#191970': 'MidnightBlue', '#F5FFFA': 'MintCream',
+    '#FFE4E1': 'MistyRose', '#FFE4B5': 'Moccasin', '#FFDEAD': 'NavajoWhite',
+    '#000080': 'Navy', '#FDF5E6': 'OldLace', '#808000': 'Olive',
+    '#6B8E23': 'OliveDrab', '#FFA500': 'Orange', '#FF4500': 'OrangeRed',
+    '#DA70D6': 'Orchid', '#EEE8AA': 'PaleGoldenRod', '#98FB98': 'PaleGreen',
+    '#AFEEEE': 'PaleTurquoise', '#DB7093': 'PaleVioletRed', '#FFEFD5': 'PapayaWhip',
+    '#FFDAB9': 'PeachPuff', '#CD853F': 'Peru', '#FFC0CB': 'Pink',
+    '#DDA0DD': 'Plum', '#B0E0E6': 'PowderBlue', '#800080': 'Purple',
+    '#663399': 'RebeccaPurple', '#FF0000': 'Red', '#BC8F8F': 'RosyBrown',
+    '#4169E1': 'RoyalBlue', '#8B4513': 'SaddleBrown', '#FA8072': 'Salmon',
+    '#F4A460': 'SandyBrown', '#2E8B57': 'SeaGreen', '#FFF5EE': 'SeaShell',
+    '#A0522D': 'Sienna', '#C0C0C0': 'Silver', '#87CEEB': 'SkyBlue',
+    '#6A5ACD': 'SlateBlue', '#708090': 'SlateGray', '#FFFAFA': 'Snow',
+    '#00FF7F': 'SpringGreen', '#4682B4': 'SteelBlue', '#D2B48C': 'Tan',
+    '#008080': 'Teal', '#D8BFD8': 'Thistle', '#FF6347': 'Tomato',
+    '#40E0D0': 'Turquoise', '#EE82EE': 'Violet', '#F5DEB3': 'Wheat',
+    '#FFFFFF': 'White', '#F5F5F5': 'WhiteSmoke', '#FFFF00': 'Yellow',
+    '#9ACD32': 'YellowGreen'
+  },
+
+  // Get closest named color
+  getColorName(hex) {
+    hex = hex.toUpperCase();
+    if (this.namedColors[hex]) return this.namedColors[hex];
+    
+    // Find closest color
+    const rgb = this.hexToRgb(hex);
+    if (!rgb) return null;
+    
+    let closestName = null;
+    let closestDistance = Infinity;
+    
+    for (const [namedHex, name] of Object.entries(this.namedColors)) {
+      const namedRgb = this.hexToRgb(namedHex);
+      if (!namedRgb) continue;
+      
+      const distance = Math.sqrt(
+        Math.pow(rgb.r - namedRgb.r, 2) +
+        Math.pow(rgb.g - namedRgb.g, 2) +
+        Math.pow(rgb.b - namedRgb.b, 2)
+      );
+      
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestName = name;
+      }
+    }
+    
+    // Only return if reasonably close (distance < 50)
+    return closestDistance < 50 ? `~${closestName}` : null;
   }
 };
 
@@ -66,10 +179,18 @@ let currentTheme = 'light';
 const pickBtn = document.getElementById('pickColor');
 const previewBox = document.getElementById('previewBox');
 const colorValue = document.getElementById('colorValue');
+const colorName = document.getElementById('colorName');
+const colorContrast = document.getElementById('colorContrast');
 const formatBtns = document.querySelectorAll('.format-btn');
 const historyContainer = document.getElementById('colorHistory');
 const statusEl = document.getElementById('status');
 const themeToggle = document.getElementById('themeToggle');
+const scanColorsBtn = document.getElementById('scanColors');
+const copyAllColorsBtn = document.getElementById('copyAllColors');
+const pageColorsContainer = document.getElementById('pageColors');
+
+// Store extracted colors for copy all
+let extractedColors = [];
 
 // Localization helper
 function i18n(key) {
@@ -145,15 +266,52 @@ function updateColorDisplay() {
   if (currentColor) {
     previewBox.style.background = currentColor;
     colorValue.textContent = ColorUtils.formatColor(currentColor, currentFormat);
+    
+    // Show color name
+    const name = ColorUtils.getColorName(currentColor);
+    colorName.textContent = name || '';
+    
+    // Show contrast info
+    updateContrastDisplay(currentColor);
+  } else {
+    colorName.textContent = '';
+    colorContrast.innerHTML = '';
   }
+}
+
+// Update contrast display
+function updateContrastDisplay(hex) {
+  const contrastWhite = ColorUtils.getContrastRatio(hex, '#FFFFFF');
+  const contrastBlack = ColorUtils.getContrastRatio(hex, '#000000');
+  
+  const ratingWhite = ColorUtils.getWCAGRating(contrastWhite);
+  const ratingBlack = ColorUtils.getWCAGRating(contrastBlack);
+  
+  // Show the better contrast option
+  const bestContrast = contrastWhite > contrastBlack ? contrastWhite : contrastBlack;
+  const bestRating = contrastWhite > contrastBlack ? ratingWhite : ratingBlack;
+  const bestColor = contrastWhite > contrastBlack ? 'white' : 'black';
+  
+  colorContrast.innerHTML = `
+    <span class="contrast-badge ${bestRating.pass ? 'pass' : 'fail'}">
+      ${bestRating.level} ${bestRating.pass ? '✓' : '✗'}
+    </span>
+    <span class="contrast-sample">
+      <span style="background: ${hex}; color: white;">Aa</span>
+      <span style="background: ${hex}; color: black;">Aa</span>
+    </span>
+  `;
 }
 
 // Show status message
 function showStatus(message, type) {
   statusEl.textContent = message;
   statusEl.className = 'status ' + type;
+  // Trigger reflow for animation
+  void statusEl.offsetWidth;
+  statusEl.classList.add('show');
   setTimeout(() => {
-    statusEl.className = 'status';
+    statusEl.classList.remove('show');
   }, 2000);
 }
 
@@ -253,6 +411,98 @@ formatBtns.forEach(btn => {
 
 // Theme toggle click
 themeToggle.addEventListener('click', toggleTheme);
+
+// Scan page colors
+scanColorsBtn.addEventListener('click', scanPageColors);
+
+// Copy all colors
+copyAllColorsBtn.addEventListener('click', copyAllColors);
+
+async function copyAllColors() {
+  if (extractedColors.length === 0) return;
+  
+  // Format colors based on current format
+  const formattedColors = extractedColors.map(color => 
+    ColorUtils.formatColor(color, currentFormat)
+  );
+  
+  // Create a nice formatted output
+  const output = formattedColors.join('\n');
+  
+  await copyToClipboard(output);
+  showStatus(`${extractedColors.length} ${i18n('colorsCopied') || 'colors copied'}`, 'success');
+}
+
+async function scanPageColors() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+  if (!tab || tab.url.startsWith('chrome://') || tab.url.startsWith('edge://') || tab.url.startsWith('about:')) {
+    showStatus(i18n('cannotPickOnPage'), 'error');
+    return;
+  }
+  
+  scanColorsBtn.classList.add('scanning');
+  pageColorsContainer.innerHTML = '<span class="page-colors-empty">Scanning...</span>';
+  
+  try {
+    // Inject content script if needed
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content.js']
+    });
+  } catch (e) {
+    // Script might already be injected
+  }
+  
+  try {
+    const response = await chrome.tabs.sendMessage(tab.id, { action: 'extractColors' });
+    if (response && response.colors && response.colors.length > 0) {
+      extractedColors = response.colors;
+      renderPageColors(response.colors);
+      copyAllColorsBtn.style.display = 'flex';
+    } else {
+      extractedColors = [];
+      copyAllColorsBtn.style.display = 'none';
+      pageColorsContainer.innerHTML = '<span class="page-colors-empty">No colors found</span>';
+    }
+  } catch (err) {
+    console.error('Failed to extract colors:', err);
+    extractedColors = [];
+    copyAllColorsBtn.style.display = 'none';
+    pageColorsContainer.innerHTML = '<span class="page-colors-empty">Failed to scan</span>';
+  }
+  
+  scanColorsBtn.classList.remove('scanning');
+}
+
+function renderPageColors(colors) {
+  pageColorsContainer.innerHTML = '';
+  
+  if (colors.length === 0) {
+    const emptyEl = document.createElement('span');
+    emptyEl.className = 'page-colors-empty';
+    emptyEl.textContent = 'No colors found';
+    pageColorsContainer.appendChild(emptyEl);
+    return;
+  }
+  
+  colors.slice(0, 24).forEach(color => {
+    const el = document.createElement('div');
+    el.className = 'page-color';
+    el.style.background = color;
+    el.title = color;
+    el.addEventListener('click', () => selectPageColor(color));
+    pageColorsContainer.appendChild(el);
+  });
+}
+
+async function selectPageColor(color) {
+  currentColor = color;
+  updateColorDisplay();
+  await addToHistory(color);
+  await copyToClipboard(ColorUtils.formatColor(color, currentFormat));
+  showStatus(i18n('copied'), 'success');
+}
 
 // Listen for color picked message
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

@@ -38,5 +38,41 @@
   "colorCopied": {
     "message": "颜色已复制！",
     "description": "Success message"
+  },
+  "colorsOnPage": {
+    "message": "此页面上的颜色",
+    "description": "Label for page colors section"
+  },
+  "clickToScan": {
+    "message": "点击刷新扫描",
+    "description": "Placeholder before scanning"
+  },
+  "noRecentColors": {
+    "message": "无最近颜色",
+    "description": "Placeholder when no color history"
+  },
+  "colorsCopied": {
+    "message": "个颜色已复制",
+    "description": "Status when multiple colors copied"
+  },
+  "colorName": {
+    "message": "名称",
+    "description": "Label for color name"
+  },
+  "contrast": {
+    "message": "对比度",
+    "description": "Label for contrast section"
+  },
+  "withWhite": {
+    "message": "与白色",
+    "description": "Contrast with white text"
+  },
+  "withBlack": {
+    "message": "与黑色",
+    "description": "Contrast with black text"
+  },
+  "keyboardShortcut": {
+    "message": "快捷键",
+    "description": "Tooltip for keyboard shortcut"
   }
 }

@@ -38,5 +38,41 @@
   "colorCopied": {
     "message": "색상이 복사되었습니다!",
     "description": "Success message"
+  },
+  "colorsOnPage": {
+    "message": "이 페이지의 색상",
+    "description": "Label for page colors section"
+  },
+  "clickToScan": {
+    "message": "클릭하여 스캔",
+    "description": "Placeholder before scanning"
+  },
+  "noRecentColors": {
+    "message": "최근 색상 없음",
+    "description": "Placeholder when no color history"
+  },
+  "colorsCopied": {
+    "message": "개 색상 복사됨",
+    "description": "Status when multiple colors copied"
+  },
+  "colorName": {
+    "message": "이름",
+    "description": "Label for color name"
+  },
+  "contrast": {
+    "message": "대비",
+    "description": "Label for contrast section"
+  },
+  "withWhite": {
+    "message": "흰색과",
+    "description": "Contrast with white text"
+  },
+  "withBlack": {
+    "message": "검정과",
+    "description": "Contrast with black text"
+  },
+  "keyboardShortcut": {
+    "message": "키보드 단축키",
+    "description": "Tooltip for keyboard shortcut"
   }
 }

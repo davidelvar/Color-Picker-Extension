@@ -34,8 +34,37 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Handle extension icon click
 chrome.action.onClicked.addListener(async (tab) => {
-  if (tab.url.startsWith('chrome://') || tab.url.startsWith('edge://')) {
+  activatePickerOnTab(tab);
+});
+
+// Handle keyboard shortcut
+chrome.commands.onCommand.addListener(async (command) => {
+  if (command === 'activate-picker') {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (tab) {
+      activatePickerOnTab(tab);
+    }
+  }
+});
+
+// Shared function to activate picker
+async function activatePickerOnTab(tab) {
+  if (tab.url.startsWith('chrome://') || tab.url.startsWith('edge://') || tab.url.startsWith('about:')) {
     return;
+  }
+  
+  try {
+    // Inject content script if needed
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content.js']
+    });
+    await chrome.scripting.insertCSS({
+      target: { tabId: tab.id },
+      files: ['content.css']
+    });
+  } catch (e) {
+    // Script might already be injected
   }
   
   try {
@@ -49,4 +78,4 @@ chrome.action.onClicked.addListener(async (tab) => {
   } catch (err) {
     console.error('Failed to activate picker:', err);
   }
-});
+}
