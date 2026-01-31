@@ -3,7 +3,7 @@
 A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick any color from any webpage with a magnifying glass preview and copy it instantly.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.1.0-green.svg)
+![Version](https://img.shields.io/badge/version-1.2.0-green.svg)
 ![Edge](https://img.shields.io/badge/Edge-Compatible-blue?logo=microsoft-edge)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-blue?logo=google-chrome)
 
@@ -109,7 +109,29 @@ Contributions are welcome! Feel free to:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## � Changelog
+
+### v1.2.0 - January 31, 2026
+**🎨 Light Theme & UI Redesign**
+
+- **New Light Theme**: Fresh, professional design with `#F8FAFC` background
+- **Theme Toggle**: Switch between light and dark modes with a single click
+- **System Preference**: Automatically respects your OS theme preference on first launch
+- **CSS Variables**: Complete theming system using CSS custom properties
+- **Modern Typography**: System font stack for native look and feel
+- **Clean SVG Icons**: Replaced emojis with crisp, scalable vector icons
+- **Softer Shadows**: Professional, subtle shadow system
+- **Refined Interactions**: Smoother, less aggressive hover effects
+- **Improved Magnifier**: Light-themed color picker overlay
+- **Better Notifications**: Cleaner toast messages when copying colors
+
+### v1.1.0
+- Initial release with magnifying glass picker
+- Multiple color format support (HEX, RGB, RGBA, HSL)
+- Color history (8 recent colors)
+- Multi-language support (8 languages)
+
+## �🙏 Acknowledgments
 
 - Built with Manifest V3 for modern browser compatibility
 - Icons designed for clarity at all sizes

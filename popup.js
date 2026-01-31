@@ -60,6 +60,7 @@ const ColorUtils = {
 let currentColor = null;
 let currentFormat = 'hex';
 let colorHistory = [];
+let currentTheme = 'light';
 
 // DOM Elements
 const pickBtn = document.getElementById('pickColor');
@@ -68,6 +69,7 @@ const colorValue = document.getElementById('colorValue');
 const formatBtns = document.querySelectorAll('.format-btn');
 const historyContainer = document.getElementById('colorHistory');
 const statusEl = document.getElementById('status');
+const themeToggle = document.getElementById('themeToggle');
 
 // Localization helper
 function i18n(key) {
@@ -83,13 +85,37 @@ function applyTranslations() {
   });
 }
 
+// Theme management
+function setTheme(theme) {
+  currentTheme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  chrome.storage.local.set({ theme });
+}
+
+function toggleTheme() {
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+}
+
 // Initialize
 async function init() {
   // Apply translations
   applyTranslations();
   
-  // Load saved format and history
-  const data = await chrome.storage.local.get(['colorFormat', 'colorHistory', 'lastColor']);
+  // Load saved preferences
+  const data = await chrome.storage.local.get(['colorFormat', 'colorHistory', 'lastColor', 'theme']);
+  
+  // Apply saved theme or default to light
+  if (data.theme) {
+    setTheme(data.theme);
+  } else {
+    // Check system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
   
   if (data.colorFormat) {
     currentFormat = data.colorFormat;
@@ -134,6 +160,15 @@ function showStatus(message, type) {
 // Render color history
 function renderHistory() {
   historyContainer.innerHTML = '';
+  
+  if (colorHistory.length === 0) {
+    const emptyEl = document.createElement('span');
+    emptyEl.className = 'history-empty';
+    emptyEl.textContent = i18n('noRecentColors') || 'No recent colors';
+    historyContainer.appendChild(emptyEl);
+    return;
+  }
+  
   colorHistory.slice(0, 8).forEach(color => {
     const el = document.createElement('div');
     el.className = 'history-color';
@@ -215,6 +250,9 @@ formatBtns.forEach(btn => {
     await chrome.storage.local.set({ colorFormat: currentFormat });
   });
 });
+
+// Theme toggle click
+themeToggle.addEventListener('click', toggleTheme);
 
 // Listen for color picked message
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
