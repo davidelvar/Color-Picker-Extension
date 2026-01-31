@@ -167,6 +167,14 @@ body {
   height: 18px;
 }
 
+.shortcut-hint {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  margin-bottom: -4px;
+}
+
 /* Color Preview */
 .color-preview {
   margin-top: 16px;

@@ -223,6 +223,19 @@ async function init() {
   // Apply translations
   applyTranslations();
   
+  // Fetch and display actual keyboard shortcut
+  try {
+    const commands = await chrome.commands.getAll();
+    const pickerCommand = commands.find(cmd => cmd.name === 'activate-picker');
+    if (pickerCommand && pickerCommand.shortcut) {
+      document.getElementById('shortcutDisplay').textContent = pickerCommand.shortcut;
+    } else {
+      document.getElementById('shortcutDisplay').textContent = 'Set in edge://extensions/shortcuts';
+    }
+  } catch (e) {
+    console.log('Could not fetch shortcut');
+  }
+  
   // Load saved preferences
   const data = await chrome.storage.local.get(['colorFormat', 'colorHistory', 'lastColor', 'theme']);
   
