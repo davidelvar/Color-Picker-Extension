@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
   "permissions": ["activeTab", "clipboardWrite", "storage", "scripting"],
-  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

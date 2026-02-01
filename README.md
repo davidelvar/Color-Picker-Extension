@@ -3,7 +3,7 @@
 A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick any color from any webpage with a magnifying glass preview and copy it instantly.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-1.3.1-green.svg)
+![Version](https://img.shields.io/badge/version-1.3.2-green.svg)
 ![Edge](https://img.shields.io/badge/Edge-Compatible-blue?logo=microsoft-edge)
 ![Chrome](https://img.shields.io/badge/Chrome-Compatible-blue?logo=google-chrome)
 
@@ -14,7 +14,7 @@ A lightweight, fast color picker extension for Microsoft Edge and Chrome. Pick a
 - **🎯 Multiple Formats** - Switch between HEX, RGB, RGBA, and HSL
 - **📜 Color History** - Quick access to your 8 most recent colors
 - **🎨 Colors on This Page** - Scan and extract all colors used on any webpage with one-click copy all
-- **⌨️ Keyboard Shortcut** - Quick-activate with Alt+Shift+C
+- **⌨️ Keyboard Shortcut** - Customizable shortcut for quick activation (default: Alt+C)
 - **♿ Contrast Checker** - WCAG accessibility rating for every color
 - **🏷️ Color Names** - Shows closest CSS named color
 - **🌗 Light & Dark Themes** - Toggle between light and dark mode
@@ -114,7 +114,21 @@ Contributions are welcome! Feel free to:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📋 Changelog
+## � Privacy
+
+This extension respects your privacy. See our [Privacy Policy](PRIVACY_POLICY.md) for details.
+
+**TL;DR:** No data collection, no tracking, everything stays local on your device.
+
+## �📋 Changelog
+
+### v1.3.2 - February 1, 2026
+**🔒 Privacy & Permissions Update**
+
+- **Removed Broad Host Permissions**: Now uses `activeTab` only for better privacy and faster store reviews
+- **Added Privacy Policy**: Full transparency about data handling
+- **Customizable Keyboard Shortcut**: Set your own shortcut in browser settings (default: Alt+C)
+- **Store Descriptions Updated**: Keyboard shortcut info now reflects customizable nature
 
 ### v1.3.1 - January 31, 2026
 **🎨 Colors on This Page & Accessibility Tools**
