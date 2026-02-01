@@ -13,7 +13,7 @@ Color Picker is a lightweight and powerful browser extension that lets you insta
 • Magnifying Glass View - Zoomed pixel preview shows exactly which color you're selecting
 • Colors on This Page - Scan any webpage to instantly extract all colors used in the design
 • Copy All Colors - Export the entire color palette with one click
-• Keyboard Shortcut - Instantly activate with Alt+Shift+C
+• Keyboard Shortcut - Instantly activate with a customizable shortcut (set your own in browser settings)
 • Contrast Checker - WCAG accessibility rating (AAA/AA/Fail) for every color
 • Color Names - Shows the closest CSS named color (Tomato, RoyalBlue, etc.)
 • Multiple Color Formats - Instantly switch between HEX, RGB, RGBA, and HSL formats
@@ -46,7 +46,7 @@ Color Picker es una extensión de navegador ligera y potente que te permite iden
 • Vista con Lupa - La vista previa ampliada de píxeles muestra exactamente qué color estás seleccionando
 • Colores en Esta Página - Escanea cualquier página web para extraer instantáneamente todos los colores utilizados
 • Copiar Todos los Colores - Exporta toda la paleta de colores con un solo clic
-• Atajo de Teclado - Activa instantáneamente con Alt+Shift+C
+• Atajo de Teclado - Activa instantáneamente con un atajo personalizable (configúralo en los ajustes del navegador)
 • Verificador de Contraste - Calificación de accesibilidad WCAG (AAA/AA/Falla) para cada color
 • Nombres de Colores - Muestra el color CSS más cercano (Tomato, RoyalBlue, etc.)
 • Múltiples Formatos de Color - Cambia instantáneamente entre formatos HEX, RGB, RGBA y HSL
@@ -79,7 +79,7 @@ Color Picker est une extension de navigateur légère et puissante qui vous perm
 • Vue Loupe - L'aperçu zoomé des pixels montre exactement quelle couleur vous sélectionnez
 • Couleurs sur Cette Page - Analysez n'importe quelle page web pour extraire instantanément toutes les couleurs utilisées
 • Copier Toutes les Couleurs - Exportez toute la palette de couleurs en un clic
-• Raccourci Clavier - Activez instantanément avec Alt+Shift+C
+• Raccourci Clavier - Activez instantanément avec un raccourci personnalisable (définissez-le dans les paramètres du navigateur)
 • Vérificateur de Contraste - Note d'accessibilité WCAG (AAA/AA/Échoué) pour chaque couleur
 • Noms des Couleurs - Affiche le nom de couleur CSS le plus proche (Tomato, RoyalBlue, etc.)
 • Formats de Couleur Multiples - Basculez instantanément entre les formats HEX, RGB, RGBA et HSL
@@ -112,7 +112,7 @@ Color Picker ist eine leichte und leistungsstarke Browser-Erweiterung, mit der S
 • Lupenansicht - Die vergrößerte Pixelvorschau zeigt genau, welche Farbe Sie auswählen
 • Farben auf Dieser Seite - Scannen Sie jede Webseite, um sofort alle verwendeten Farben zu extrahieren
 • Alle Farben Kopieren - Exportieren Sie die gesamte Farbpalette mit einem Klick
-• Tastenkürzel - Sofort aktivieren mit Alt+Shift+C
+• Tastenkürzel - Sofort aktivieren mit einer anpassbaren Tastenkombination (in den Browser-Einstellungen festlegen)
 • Kontrastprüfer - WCAG-Barrierefreiheitsbewertung (AAA/AA/Fehler) für jede Farbe
 • Farbnamen - Zeigt den nächsten CSS-Farbnamen (Tomato, RoyalBlue, etc.)
 • Mehrere Farbformate - Wechseln Sie sofort zwischen HEX, RGB, RGBA und HSL Formaten
@@ -145,7 +145,7 @@ Color Picker é uma extensão de navegador leve e poderosa que permite identific
 • Visualização com Lupa - A pré-visualização ampliada de pixels mostra exatamente qual cor você está selecionando
 • Cores Nesta Página - Escaneie qualquer página da web para extrair instantaneamente todas as cores usadas
 • Copiar Todas as Cores - Exporte toda a paleta de cores com um clique
-• Atalho de Teclado - Ative instantaneamente com Alt+Shift+C
+• Atalho de Teclado - Ative instantaneamente com um atalho personalizável (defina nas configurações do navegador)
 • Verificador de Contraste - Classificação de acessibilidade WCAG (AAA/AA/Falha) para cada cor
 • Nomes das Cores - Mostra o nome de cor CSS mais próximo (Tomato, RoyalBlue, etc.)
 • Múltiplos Formatos de Cor - Alterne instantaneamente entre os formatos HEX, RGB, RGBA e HSL
@@ -178,7 +178,7 @@ Color Picker 是一款轻量且强大的浏览器扩展，让您可以即时识�
 • 放大镜视图 - 缩放的像素预览准确显示您正在选择的颜色
 • 此页面上的颜色 - 扫描任何网页，即时提取所有使用的颜色
 • 复制所有颜色 - 一键导出整个调色板
-• 键盘快捷键 - 使用 Ctrl+Shift+E（Mac 上为 Cmd+Shift+E）即时激活
+• 键盘快捷键 - 使用可自定义的快捷键即时激活（在浏览器设置中设置）
 • 对比度检查器 - 每种颜色的 WCAG 无障碍评级（AAA/AA/失败）
 • 颜色名称 - 显示最接近的 CSS 颜色名称（Tomato、RoyalBlue 等）
 • 多种颜色格式 - 即时切换 HEX、RGB、RGBA 和 HSL 格式
@@ -211,7 +211,7 @@ Color Picker は、あらゆるウェブページから瞬時に色を識別し�
 • 拡大鏡ビュー - ズームされたピクセルプレビューで選択中の色を正確に表示
 • このページの色 - 任意のウェブページをスキャンして、使用されているすべての色を即座に抽出
 • すべての色をコピー - ワンクリックでカラーパレット全体をエクスポート
-• キーボードショートカット - Ctrl+Shift+E（Macの場合はCmd+Shift+E）で即座にアクティブ化
+• キーボードショートカット - カスタマイズ可能なショートカットで即座にアクティブ化（ブラウザ設定で設定可能）
 • コントラストチェッカー - 各色のWCAGアクセシビリティ評価（AAA/AA/不合格）
 • 色の名前 - 最も近いCSS色名を表示（Tomato、RoyalBlueなど）
 • 複数のカラーフォーマット - HEX、RGB、RGBA、HSL形式を瞬時に切り替え
@@ -244,7 +244,7 @@ Color Picker는 모든 웹페이지에서 즉시 색상을 식별하고 복사�
 • 돋보기 보기 - 확대된 픽셀 미리보기로 선택 중인 색상을 정확히 표시
 • 이 페이지의 색상 - 모든 웹페이지를 스캔하여 사용된 모든 색상을 즉시 추출
 • 모든 색상 복사 - 한 번의 클릭으로 전체 색상 팔레트 내보내기
-• 키보드 단축키 - Ctrl+Shift+E (Mac에서는 Cmd+Shift+E)로 즉시 활성화
+• 키보드 단축키 - 사용자 지정 단축키로 즉시 활성화 (브라우저 설정에서 설정 가능)
 • 대비 검사기 - 각 색상의 WCAG 접근성 등급 (AAA/AA/실패)
 • 색상 이름 - 가장 가까운 CSS 색상 이름 표시 (Tomato, RoyalBlue 등)
 • 다양한 색상 형식 - HEX, RGB, RGBA, HSL 형식 간 즉시 전환
